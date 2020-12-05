@@ -7,7 +7,7 @@ from h2oaicore.metrics import CustomScorer
 class Spearman_Correlation(CustomScorer):
     _description = "Spearman's Rank Correlation Coefficient"
 #     _regression = True
-    _multiclass = True
+    _binary = True
     _maximize = True
     _perfect_score = 1.
     _supports_sample_weight = False
