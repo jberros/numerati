@@ -6,8 +6,7 @@ from h2oaicore.metrics import CustomScorer
 
 class Spearman_Correlation(CustomScorer):
     _description = "Spearman's Rank Correlation Coefficient"
-#     _regression = True
-    _binary = True
+    _multiclass = True
     _maximize = True
     _perfect_score = 1.
     _supports_sample_weight = False
@@ -17,7 +16,7 @@ class Spearman_Correlation(CustomScorer):
               actual: np.array,
               predicted: np.array,
               sample_weight: typing.Optional[np.array] = None,
-              labels: typing.Optional[np.array] = None) -> float:
+              labels: typing.Optional[np.array] = [0, 0.25, 0.5, 0.75, 1]) -> float:
         if sample_weight is None:
             sample_weight = np.ones(actual.shape[0])
         
